@@ -1,0 +1,44 @@
+<!-- ── OVERLAY ── -->
+<div class="overlayy"  id="overlay"
+  (click)="closeMenu()"
+  [class.active]="isOpen"
+  ></div>
+
+<aside class="side-menu" [class.open]="isOpen" id="drawer" aria-hidden="true">
+
+  <div class="drawer-header">
+    <a routerLink="/" class="drawer-brand" href="">
+      <img class="brand-avatar" src="../../../../assets/images/avatar.png" alt="HoxWebDev Avatar">
+      <span  class="brand-name">Hox<span>WebDev</span></span>
+    </a>
+  </div>
+
+  <nav class="drawer-nav" role="navigation">
+    <a  routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-item" href="#" data-page="Home">
+      Home
+      <span class="nav-dot"></span>
+    </a>
+    <a routerLink="/about" routerLinkActive="active" class="nav-item" [routerLinkActiveOptions]="{ exact: true }" href="#" data-page="About">
+      About
+      <span class="nav-dot"></span>
+    </a>
+    <a routerLink="/projects" routerLinkActive="active" class="nav-item" [routerLinkActiveOptions]="{ exact: true }" href="#" data-page="Projects">
+      Projects
+      <span class="nav-dot"></span>
+    </a>
+    <a routerLink="/services" routerLinkActive="active" class="nav-item" [routerLinkActiveOptions]="{ exact: true }" href="#" data-page="Services">
+      Services
+      <span class="nav-dot"></span>
+    </a>
+    <a routerLink="/contact" routerLinkActive="active" class="nav-item" [routerLinkActiveOptions]="{ exact: true }" href="#" data-page="Contact">
+      Contact
+      <span class="nav-dot"></span>
+    </a>
+  </nav>
+
+  <div class="drawer-footer">
+    <button class="btn-signin">Sign In</button>
+    <button class="btn-getstarted">Get Started</button>
+  </div>
+
+</aside>

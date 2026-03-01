@@ -1,0 +1,271 @@
+@use'../../../../assets/style/variables' as *;
+$widdd:70%;
+.side-menu {
+    position: fixed;
+    top: -11px;
+    left: -10px;
+    width: $widdd;
+    height: 100dvh;
+    background: $bg-fade;
+    border-right: 1px solid $accent-purple;
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    /* glow at bottom */
+    box-shadow: 0 0 80px rgba(217, 40, 143, 0.15);
+
+    /* hidden state */
+    transform: translateX(calc(-1 * 110%));
+    transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+  /* ══════════════════════════
+     OVERLAY
+  ══════════════════════════ */
+  .overlayy {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 999;
+  }
+
+  .overlayy.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+.side-menu.open {
+    transform: translateX(0);
+}
+.brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid $accent-purple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+// .close-btn {
+//   margin-bottom: 20px;
+//   cursor: pointer;
+// }
+ /* ── drawer header ── */
+  .drawer-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid $accent-purple;
+    flex-shrink: 0;
+  }
+
+  .drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: 'Geist-Bold';
+    color: $text;
+    span:first-child {
+      color: $accent-purple;
+    }
+  }
+
+  /* ── nav links ── */
+  .drawer-nav {
+    flex: 1;
+    padding: 16px 14px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: $text-gray;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .nav-item::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    border-radius: 3px;
+    background: linear-gradient($accent-purple-text,$accent-purple);
+    transition: height 0.25s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .nav-item:hover {
+    color: $accent-purple-text-light;
+    background: rgba(246, 92, 192, 0.07);
+  }
+
+  .nav-item.active {
+    background: $light-bg;
+    color: #fff;
+    border-color: $accent-purple;
+    font-weight: 600;
+  }
+
+  .nav-item.active::before {
+    height: 60%;
+  }
+
+  /* active dot */
+  .nav-dot {
+    display: inline-block;
+    position: relative;
+    right: -65%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $accent-purple;
+    flex-shrink: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .nav-item.active .nav-dot {
+    opacity: 1;
+  }
+
+  /* ── drawer footer ── */
+  .drawer-footer {
+    padding: 20px 14px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    border-top: 1px solid $accent-purple;
+  }
+   .togge span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .togge span:nth-child(2) { opacity: 0; width: 0; }
+    .togge span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .togge span { background: $accent-purple;
+        box-shadow: 0 0 8px $accent-purple;
+      }
+  .btn-signin {
+    background: transparent;
+    border: none;
+    color: $accent-purple;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 0;
+    text-align: center;
+    transition: color 0.2s;
+  }
+
+  .btn-signin:hover { color: $accent-purple-text; }
+
+  .btn-getstarted {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, $accent-purple-text, $accent-purple);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 10px $accent-purple;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+
+  .btn-getstarted:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px $accent-purple-hover;
+  }
+  .btn-getstarted:active {
+    transform: translateY(0);
+  }
+
+  /* ── close button (top-right of screen) ── */
+  .close-btn {
+    position: fixed;
+    top: 10px;
+    right: 14px;
+    z-index: 310;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: $accent-purple-hover;
+    border: 1px solid $accent-purple;
+    color: var(--purple);
+    font-size: 20px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.85);
+    transition: opacity 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  .close-btn.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(1);
+  }
+
+  .close-btn:hover {
+    background: $accent-purple;
+  }
+
+
+@media (min-width: 768px) {
+  .side-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+    .overlayy {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 1, 10, 0.213);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    width: 100%;
+    height: 100vh;
+  }
+  .side-menu nav a {
+    display: block;
+    margin: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}

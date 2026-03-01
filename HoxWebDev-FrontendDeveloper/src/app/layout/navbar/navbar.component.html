@@ -1,0 +1,44 @@
+<nav appScrollReveal [class.scrolled]="isScroled" [class.alt-style]="isAltStyle" id="navbar">
+
+  <!-- Brand -->
+  <a routerLink="/" href="#" class="nav-brand">
+    <img class="avatar" src="assets/images/avatar.png" alt="avatar-logo">
+    <h1><span class="slow">Hox</span><span class="web">Web</span><span class="dev">Dev</span></h1>
+  </a>
+
+  <!-- Nav Links -->
+  <ul appScrollReveal class="nav-links">
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" ><a routerLink="/" href="">Home</a></li>
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" ><a routerLink="/about" href="">About</a></li>
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/projects" href="">Projects</a></li>
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/services" href="">Services</a></li>
+    <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/contact" href="">Contact</a></li>
+  </ul>
+
+  <!-- Right Side -->
+  <div class="nav-right">
+
+    <!-- Layers icon button -->
+    <button (click)="toggleNavStyle()" 
+    (click)="layerTogel()" [class.layer-togeled]="togelLayer" class="nav-layers-btn" aria-label="Layers">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+        <polyline points="2 17 12 22 22 17"/>
+        <polyline points="2 12 12 17 22 12"/>
+      </svg>
+    </button>
+
+    <button class="btn-signin">Sign In</button>
+    <button class="btn-getstarted">Get Started</button>
+
+    <!-- Mobile hamburger -->
+    <button (click)="toggleMenu()" [class.togge]="isOpen" [class.open]="isOpen" class="nav-hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+ <app-side-menue [isOpen]="isOpen"></app-side-menue>
+</nav>
