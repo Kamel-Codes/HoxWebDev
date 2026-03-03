@@ -6,7 +6,7 @@ import { ScrollRevealDirective } from "../../shared/directives/scroll-reveal.dir
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, SharedModule, ScrollRevealDirective],
+  imports: [RouterLink, RouterLinkActive, SharedModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

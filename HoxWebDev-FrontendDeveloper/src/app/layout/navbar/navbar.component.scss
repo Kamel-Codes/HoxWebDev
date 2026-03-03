@@ -14,7 +14,10 @@ nav {
       align-items: center;
       justify-content: space-between;
       gap: 2rem;  
-      margin: 0 auto;   
+      margin: 0 auto;  
+      opacity: 0;
+      transform: translateY(-40px);
+      animation: slideInDown 1.5s cubic-bezier(.16,1,.3,1) .1s forwards; 
       // margin-left: 50%;
       // transform: translateX(-50%);
      
@@ -25,6 +28,7 @@ nav {
   top: 10px;
   background: transparent;
   border-radius: 15px;
+  justify-content: space-between;
   transition: all 0.3s ease;
  
 }
@@ -112,9 +116,14 @@ nav {
       align-items: center;
       gap: 0.75rem;
       flex-shrink: 0;
-      
+      // transform: translateX(45%);
       border-radius: 5px;
       padding: 2px ;
+    }
+    @media (min-width: 1150px) {
+      .nav-right {
+        transform: translateX(45%);
+      }
     }
 
     .nav-layers-btn {
@@ -209,7 +218,11 @@ nav {
   .layer-togeled{
     border-color: $accent-purple;
   }
- 
+   /* ── Keyframes ── */
+    @keyframes slideInDown {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
     @media (max-width: 768px) {
       .nav-links,.btn-getstarted,.btn-signin,.nav-layers-btn   { display: none; }
       .nav-hamburger { display: flex; position: relative; z-index: 1001;}

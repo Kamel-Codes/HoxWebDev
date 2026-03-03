@@ -1,4 +1,4 @@
-<nav appScrollReveal [class.scrolled]="isScroled" [class.alt-style]="isAltStyle" id="navbar">
+<nav [class.scrolled]="isScroled" [class.alt-style]="isAltStyle" id="navbar">
 
   <!-- Brand -->
   <a routerLink="/" href="#" class="nav-brand">
@@ -7,7 +7,7 @@
   </a>
 
   <!-- Nav Links -->
-  <ul appScrollReveal class="nav-links">
+  <ul class="nav-links">
     <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" ><a routerLink="/" href="">Home</a></li>
     <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" ><a routerLink="/about" href="">About</a></li>
     <li  routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/projects" href="">Projects</a></li>
